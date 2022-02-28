@@ -38,11 +38,20 @@ class Url:
         short_url = cls.generate_short_url()
 
         if not cls.is_url(url):
-            return cls.generate_response(message="Error during create url. PLease provide a good url format", code=HTTPStatus.BAD_REQUEST)
+            return cls.generate_response(
+                message="Error during create url. PLease provide a good url format",
+                code=HTTPStatus.BAD_REQUEST,
+            )
 
         if not cls.check_url_exist(url):
-            return cls.generate_response(message="Error during create url. This url already exists.", code=HTTPStatus.BAD_REQUEST)
+            return cls.generate_response(
+                message="Error during create url. This url already exists.",
+                code=HTTPStatus.BAD_REQUEST,
+            )
 
         Urls.objects.create(full_path=url, short_path=short_url)
 
-        return cls.generate_response(message=f"{url} was created successfully. His short url is {short_url}", code=HTTPStatus.CREATED)
+        return cls.generate_response(
+            message=f"{url} was created successfully. His short url is {short_url}",
+            code=HTTPStatus.CREATED,
+        )
