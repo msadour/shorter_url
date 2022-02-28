@@ -2,7 +2,9 @@ venv
 .idea
 shorter_url/__pycache__/*
 source/__pycache__/
+source/__pycache__/*
 source/utils/__pycache__/
 source/migrations/__pycache__/
 source/tests/__pycache__/
 db.sqlite3-journal
+.pytest_cache

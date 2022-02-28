@@ -1,3 +1,5 @@
+"""URL manager tests."""
+
 import django ; django.setup()
 from rest_framework import status
 

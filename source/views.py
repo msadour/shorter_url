@@ -10,9 +10,7 @@ from source.utils.serializers import UrlsSerializer
 
 
 class UrlViewSet(viewsets.ViewSet):
-    """
-    Urls viewset.
-    """
+    """Urls viewset."""
 
     url = Url()
     serializer_class = UrlsSerializer
