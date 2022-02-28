@@ -45,4 +45,4 @@ class Url:
 
         Urls.objects.create(full_path=url, short_path=short_url)
 
-        return cls.generate_response(message=f"{url} was created successfully. His short url is {short_url}", code=HTTPStatus.BAD_REQUEST)
+        return cls.generate_response(message=f"{url} was created successfully. His short url is {short_url}", code=HTTPStatus.CREATED)
