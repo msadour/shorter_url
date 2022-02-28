@@ -21,8 +21,8 @@ class Url:
         return full_short_url
 
     @classmethod
-    def check_url_exist(cls, url):
-        return not Urls.objects.filter(full_path=url).exists()
+    def url_exist(cls, url):
+        return Urls.objects.filter(full_path=url).exists()
 
     @classmethod
     def is_url(cls, url):
@@ -34,7 +34,7 @@ class Url:
 
     @classmethod
     def create_url(cls, payload):
-        url = payload.data.get("url")
+        url = payload.get("url")
         short_url = cls.generate_short_url()
 
         if not cls.is_url(url):
@@ -43,7 +43,7 @@ class Url:
                 code=HTTPStatus.BAD_REQUEST,
             )
 
-        if not cls.check_url_exist(url):
+        if cls.url_exist(url):
             return cls.generate_response(
                 message="Error during create url. This url already exists.",
                 code=HTTPStatus.BAD_REQUEST,

@@ -1,3 +1,4 @@
+# import django ; django.setup()
 # from rest_framework import status
 # from rest_framework.test import APIClient, APITestCase
 #
@@ -10,7 +11,7 @@
 # url = "/url/"  # export DJANGO_SETTINGS_MODULE=shorter_url.settings
 #
 #
-# class UrlTestCase(APITestCase):
+# class TestUrlAPI(APITestCase):
 #     """class ArticleTestCase."""
 #
 #     def setUp(self) -> None:
@@ -18,16 +19,15 @@
 #         self.client = APIClient()
 #         UrlFactory()
 #
-#     def test_list(self) -> None:
+#     def test_api_list(self) -> None:
 #         """Test list of urls.
 #         Raises:
 #             AssertError: Assertion failed.
 #         """
 #         response = self.client.get(url)
-#         breakpoint()
-#         self.assertEqual(len(response.data), 1)
+#         assert len(response.data) == 1
 #
-#     def test_create_valid_url(self, url_valid) -> None:
+#     def test_api_create_valid_url(self, url_valid) -> None:
 #         """
 #         Test creation of an article.
 #         Raises:
@@ -36,7 +36,7 @@
 #         response = self.client.post(
 #             url, data=url_valid, content_type="application/json"
 #         )
-#         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+#         assert response.status_code == status.HTTP_201_CREATED
 #
 #     # def test_create_not_valid_url(self, url_not_valid) -> None:
 #     #     """

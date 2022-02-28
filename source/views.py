@@ -39,4 +39,4 @@ class UrlViewSet(viewsets.ViewSet):
         Returns:
           Response with url created.
         """
-        return self.url.create_url(payload=request)
+        return self.url.create_url(payload=request.data)

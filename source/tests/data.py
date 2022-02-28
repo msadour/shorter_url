@@ -3,16 +3,16 @@
 import pytest
 
 
-@pytest.fixture
-def url_valid() -> str:
-    return "http://google.fr"
+@pytest.fixture(scope='class')
+def url_valid() -> dict:
+    return {"url": "http://facebook.fr"}
 
 
-@pytest.fixture
-def url_not_valid() -> str:
-    return "http://google"
+@pytest.fixture(scope='class')
+def url_not_valid() -> dict:
+    return {"url": "http://facebook"}
 
 
-@pytest.fixture
-def url_exist() -> str:
-    return "http://youtube.fr"
+@pytest.fixture(scope='class')
+def url_exist() -> dict:
+    return {"url": "http://facebook.fr"}
