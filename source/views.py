@@ -4,15 +4,18 @@ from rest_framework import viewsets
 from rest_framework.request import Request
 from rest_framework.response import Response
 
+from source.models import Urls
 from source.utils.manager import Url
+from source.utils.serializers import UrlsSerializer
 
 
-class MailViewSet(viewsets.ViewSet):
+class UrlViewSet(viewsets.ViewSet):
     """
-    Mail viewset.
+    Urls viewset.
     """
 
     url = Url()
+    serializer_class = UrlsSerializer
 
     def list(self, request: Request) -> Response:
         """Retrieve url(s).
@@ -23,7 +26,9 @@ class MailViewSet(viewsets.ViewSet):
         Returns:
           Response with urls.
         """
-        pass
+        queryset = Urls.objects.all().order_by("-created_at")
+        serializer = self.serializer_class(queryset, many=True)
+        return Response(serializer.data, status=200)
 
     def create(self, request: Request) -> Response:
         """Create a shorter url.
@@ -34,4 +39,4 @@ class MailViewSet(viewsets.ViewSet):
         Returns:
           Response with url created.
         """
-        pass
+        return self.url.create_url(payload=request)

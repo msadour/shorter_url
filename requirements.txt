@@ -2,3 +2,4 @@ black
 django
 djangorestframework
 pytest
+validators

@@ -7,13 +7,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('source', '0001_initial'),
+        ("source", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='urls',
-            name='created_at',
-            field=models.DateTimeField(default=datetime.datetime(2022, 2, 27, 22, 47, 10, 68060)),
+            model_name="urls",
+            name="created_at",
+            field=models.DateTimeField(
+                default=datetime.datetime(2022, 2, 27, 22, 47, 10, 68060)
+            ),
         ),
     ]
